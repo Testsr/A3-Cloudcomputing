@@ -14,7 +14,7 @@
 
 <html>
 <head>
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="static/style.css">
      <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=swap" rel="stylesheet">
@@ -31,6 +31,7 @@
      </style>
 </head>
 <body>
+<div class="main">
 <div>
 <b><p id="username">{{user_name}}</p></b>
 </div>
@@ -47,7 +48,7 @@
      </form>
      {% endfor %}
 </div>
-<div id="query">
+<div class="query">
      <form action="query" method="get"> 
           <label for="stockcode">StockCode</label>
           <input type="text" id="stockcode" name="stockcode"><br>
@@ -78,6 +79,7 @@
                {% endfor %}
           {% endif %}
      {% endif %}
+</div>
 </div>
 </body>
 </html> 

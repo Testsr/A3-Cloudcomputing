@@ -26,3 +26,45 @@ border-radius: 5px;
 margin: 5px;
 
 }
+
+.main {
+ position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+width: 300px;
+padding:20px 30px;
+background-color: #fff;
+font-family: 'Lato',sans-serif;
+border-radius: 5px;
+margin: 5px;
+line-height:120%
+}
+
+.register {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+width: 300px;
+padding:20px 30px;
+background-color: #fff;
+font-family: 'Lato',sans-serif;
+border-radius: 5px;
+margin: 5px;
+line-height:120%
+}
+
+.telegram {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+width: 300px;
+padding:20px 30px;
+background-color: #fff;
+font-family: 'Lato',sans-serif;
+border-radius: 5px;
+margin: 5px;
+line-height:120%
+}

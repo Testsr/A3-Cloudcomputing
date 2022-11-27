@@ -15,7 +15,7 @@
 
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="static/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=swap" rel="stylesheet">
@@ -32,6 +32,7 @@
 </style>
 </head>
 <body>
+  <div class="register">
   <form method="post">
     <label for="username">Username:</label><br>
     <input type="username" id="username" name="username" required><br>
@@ -46,5 +47,6 @@
     <p> The username already exists.</p>
     {% endif %}
   </form>
+</div>
 </body>
 </html>
