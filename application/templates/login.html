@@ -15,19 +15,39 @@
 
 <html>
 <head>
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="pop-up"> 
   <form method="post">
+    <div class="form-element">
     <label for="username">Username:</label><br>
     <input type="text" id="username" name="username" required><br>
+  </div>
+
+    <div class="form-element">
     <label for="password">Password:</label><br>
     <input type="password" id="password" name="password" required><br>
+  </div>
+
+  <div class="form-element">
+    <input type="checkbox" id="remember-me">
+    <label for="remember-me">Remember Me</label>
+  </div>
+
+<div class="form-element">
     <input type="submit" id="login" value="Login">
     <a href="/register">Register</a>
+  </div>
+
     {% if login_failed %}
     <p> Email or password is invalid</p>
     {% endif %}
     
   </form>
+</div>
 </body>
 </html>
