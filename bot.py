@@ -9,7 +9,7 @@ dispatcher = updater.dispatcher
 
 def start(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Hi! Please identify yourself using the ident command with the random key passed in.")
-def ident(update: Update, context: CallbackContext):
+def update(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id,text="Processing")
     if len(context.args) == 0:
         context.bot.send_message(chat_id=update.effective_chat.id, text="No param specified")
@@ -30,11 +30,11 @@ def ident(update: Update, context: CallbackContext):
                                            ':c':update.effective_chat.id
                                        },
                                        )
-    context.bot.send_message(chat_id=update.effective_chat.id, text="You have sucessfully registered with the system")
+    context.bot.send_message(chat_id=update.effective_chat.id, text="You have sucessfully registered with the system.")
 
 
 start_handler = CommandHandler('start', start)
-ident_handler = CommandHandler('ident', ident)
+ident_handler = CommandHandler('identity', update)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(ident_handler)
 updater.start_polling()
