@@ -32,9 +32,11 @@
 </head>
 <body>
 <div class="main">
+
 <div>
 <b><p id="username">{{user_name}}</p></b>
 </div>
+
 <a href="logout">Logout</a>
 <div id="subscriptions">
      {%for item in subscriptions %}
@@ -52,27 +54,27 @@
      <form action="query" method="get"> 
           <label for="stockcode">StockCode</label>
           <input type="text" id="stockcode" name="stockcode"><br>
-          <label for="stockcode">StockName</label>
-          <input type="text" id="stockcode" name="stockcode"><br>           
+          <label for="stockname">StockName</label>
+          <input type="text" id="stockname" name="stockname"><br>
           <input type="submit" id="Submit" value="Query">
      </form>
-     {% if query is defined %}
-          {% if query == [] %}
+     {% if response is defined %}
+          {% if response == [] %}
                <p>No result is retrieved. Please query again.</p>
           {% else %}
                <p>Here are the results:</p>
-               {% for item in query%}
+               {% for item in response%}
                <div>
-                    <p>StockCode:{{item.stockcode}}</p>
-                    <p>StockName:{{item.stockname}}</p>
+                    <p>StockCode:{{item[0]}}</p>
+                    <p>StockName:{{item[1]}}</p>
                     <form method="post" action="subscribe" style="display:inline">
-                         If {{item.stockname}}'s price is
+                         If {{item[1]}}'s price is
                          <select name="compare" required>
                               <option value="less">less than</option>
                               <option value="greater">greater than</option>
                          </select>
-                         <input type="number" name="price" required>
-                         <input type="hidden" name="stockcode" value="{{item.stockcode}}">
+                         <input type="text" name="trigger" required>
+                         <input type="hidden" name="stock_code" value="{{item[0]}}">
                          <button type="submit" name="query" value="">Subscribe</button>
                     </form>
                     </div>
