@@ -1,0 +1,5 @@
+boto3
+Flask
+httpx
+python-telegram-bot
+gunicorn

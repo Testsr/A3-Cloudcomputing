@@ -1,0 +1,46 @@
+
+<!doctype html>
+<!--
+ Copyright 2021 Google LLC
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<html>
+<head>
+  <style>
+    img {
+      width: 150px;
+      height: 150px;
+      margin-right: 15px;
+    }
+  
+    .parent {
+      display: flex;
+    }
+</style>
+</head>
+<body>
+  <form method="post">
+    <label for="username">Username:</label><br>
+    <input type="username" id="username" name="username" required><br>
+    <label for="pass">Password:</label><br>
+    <input type="password" id="pass" name="pass" required><br>
+    <input type="submit" id="register" value="Register">
+    <a href="/register"></a>
+    {% if email_existed %}
+    <p> The email already exists.</p>
+    {% endif %}
+    {% if username_existed %}
+    <p> The username already exists.</p>
+    {% endif %}
+  </form>
+</body>
+</html>
