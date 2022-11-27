@@ -10,7 +10,7 @@ dynamodb = boto3.resource('dynamodb')
 # cond = ["greater",price]
 def main():
     # reieteve the data
-    stock_url_temp = "https://www.asx.com.au/asx/1/company/{0}?fields=primary_share"
+    stock_url_temp = os.environ["asx_stock_url"]
     with psycopg.connect("postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.cygdlm2jaqpj"
                          ".us-east-1.rds.amazonaws.com:5432/postgres") as conn:
         with conn.cursor() as cur:

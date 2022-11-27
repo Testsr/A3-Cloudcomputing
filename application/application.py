@@ -1,19 +1,19 @@
-import os
-
 from flask import *
 import string, random
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
 import psycopg
+import os
+boto_client = boto3.setup_default_session(region_name='us-east-1')
+
 application = Flask(__name__)
 application.secret_key = b'\xfb=\xeb?\x84\x1d\xd6m\xfd\xbc\x9d\x0ff\xe2W\x00'
 dynamodb = boto3.resource('dynamodb')
 login_table = dynamodb.Table("login")
 main_table = dynamodb.Table("stocks")
 sub_table = dynamodb.Table("stocks-subs")
-from dotenv import load_dotenv
-load_dotenv()  # take environment variables from .env.
-stock_table_url=os.environ["stocks_rds"]
+stock_table_url= os.environ["stocks_rds"] if "stocks_rds" in os.environ else "postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.cygdlm2jaqpj"\
+                                                                           ".us-east-1.rds.amazonaws.com:5432/postgres"
 @application.route('/')
 def index():
     if 'username' in session:
