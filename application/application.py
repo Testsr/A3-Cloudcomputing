@@ -125,7 +125,6 @@ def return_query(stock_code,stock_name,stock_table_url):
         print(params)
         print(results)
     return results
-@application.route('/main')
 
 @application.route('/subscribe',methods=["POST"])
 def subscribe():
