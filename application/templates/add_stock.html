@@ -1,5 +1,26 @@
 <html>
+     <head>
+          <link rel="stylesheet" href="static/style.css">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=swap" rel="stylesheet">
+          <style>
+          img {
+               width: 150px;
+               height: 150px;
+               margin-right: 15px;
+             }
+           
+             .parent {
+               display: flex;
+             }
+          </style>
+     </head>
     <body>
+     
+     <div class="main">
+<a href="logout">Logout</a>
+
 <form action="query" method="get"> 
     <label for="stockcode">StockCode/Name</label>
     <input type="text" id="stockcode" name="stockcode"><br>
@@ -28,5 +49,6 @@
          {% endfor %}
     {% endif %}
 {% endif %}
+</div>
 </body>
 </html>

@@ -58,6 +58,13 @@ def telegram_add():
 def logout():
     session.pop('username', None)
     return redirect("/login", code=302)
+@application.route('/add_stock')
+def add_stock_menu():
+    if 'username' not in session:
+        return redirect("/login", code=302)
+    username=session["username"]
+    response = login_table.query(KeyConditionExpression=Key("username").eq(username))
+    return render_template("add_stock.html",username=username)
 
 @application.route('/register',methods=['GET', 'POST'])
 def register():
