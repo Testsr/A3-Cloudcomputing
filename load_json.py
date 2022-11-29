@@ -22,7 +22,6 @@ with psycopg.connect("postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.c
                     req = httpx.get(url)
                     json_res = req.json()
                     try:
-                        print(json_res["primary_share"]["last_price"])
                         copy.write_row((row["ASX code"], row["Company name"]))
                     except KeyError:
                         pass

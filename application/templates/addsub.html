@@ -1,0 +1,32 @@
+<html>
+    <body>
+<form action="query" method="get"> 
+    <label for="stockcode">StockCode/Name</label>
+    <input type="text" id="stockcode" name="stockcode"><br>
+    <input type="submit" id="Submit" value="Query">
+</form>
+{% if response is defined %}
+    {% if response is None %}
+         <p>No result is retrieved. Please try again.</p>
+    {% else %}
+         <p>Here are the results:</p>
+         {% for item in response%}
+         <div id="add_alert">
+              <p>StockCode:{{item[0]}}</p>
+              <p>StockName:{{item[1]}}</p>
+              <form method="post" action="subscribe" style="display:inline">
+                   If {{item[1]}}'s price is
+                   <select name="compare" required>
+                        <option value="less">less than</option>
+                        <option value="greater">greater than</option>
+                   </select>
+                   <input type="text" name="trigger" required>
+                   <input type="hidden" name="stock_code" value="{{item[0]}}">
+                   <button type="submit" name="query" value="">Subscribe</button>
+              </form>
+         </div>
+         {% endfor %}
+    {% endif %}
+{% endif %}
+</body>
+</html>

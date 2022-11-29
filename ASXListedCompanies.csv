@@ -1,4 +1,4 @@
-ASX listed companies as at Sat Nov 26 11:09:17 AEDT 2022
+ASX listed companies as at Tue Nov 29 10:48:02 AEDT 2022
 
 Company name,ASX code,GICS industry group
 "1414 DEGREES LIMITED","14D","Capital Goods"
@@ -18,7 +18,6 @@ Company name,ASX code,GICS industry group
 "8COMMON LIMITED","8CO","Software & Services"
 "8I HOLDINGS LTD","8IH","Diversified Financials"
 "8VI HOLDINGS LIMITED","8VI","Consumer Services"
-"9 SPOKES INTERNATIONAL LIMITED","9SP","Software & Services"
 "92 ENERGY LIMITED","92E","Energy"
 "99 LOYALTY LIMITED.","99L","Software & Services"
 "A-CAP ENERGY LIMITED","ACB","Energy"
@@ -607,7 +606,7 @@ Company name,ASX code,GICS industry group
 "DESANE GROUP HOLDINGS LIMITED","DGH","Real Estate"
 "DESERT METALS LIMITED","DM1","Materials"
 "DESIGN MILK CO LIMITED","DMC","Retailing"
-"DESOTO RESOURCES LIMITED","DES","Class Pend"
+"DESOTO RESOURCES LIMITED","DES","Materials"
 "DETERRA ROYALTIES LIMITED","DRR","Materials"
 "DEVELOP GLOBAL LIMITED","DVP","Materials"
 "DEVEX RESOURCES LIMITED","DEV","Energy"
@@ -944,7 +943,7 @@ Company name,ASX code,GICS industry group
 "HEXAGON ENERGY MATERIALS LIMITED","HXG","Materials"
 "HEXIMA LIMITED.","HXL","Pharmaceuticals, Biotechnology & Life Sciences"
 "HIGH PEAK ROYALTIES LIMITED","HPR","Energy"
-"HIGH-TECH METALS LTD","HTM","Class Pend"
+"HIGH-TECH METALS LTD","HTM","Materials"
 "HIGHFIELD RESOURCES LIMITED","HFR","Materials"
 "HILLGROVE RESOURCES LIMITED","HGO","Materials"
 "HILLS LIMITED","HIL","Technology Hardware & Equipment"
@@ -1559,7 +1558,6 @@ Company name,ASX code,GICS industry group
 "PATRIOT BATTERY METALS INC.","PMT","Materials"
 "PATRIOT LITHIUM LIMITED","PAT","Materials"
 "PATRYS LIMITED","PAB","Pharmaceuticals, Biotechnology & Life Sciences"
-"PAYGROUP LIMITED","PYG","Software & Services"
 "PAYRIGHT LIMITED","PYR","Diversified Financials"
 "PEAK MINERALS LIMITED","PUA","Materials"
 "PEAK RARE EARTHS LIMITED","PEK","Materials"
@@ -1609,6 +1607,7 @@ Company name,ASX code,GICS industry group
 "PINNACLE INVESTMENT MANAGEMENT GROUP LIMITED","PNI","Diversified Financials"
 "PINNACLE MINERALS LIMITED","PIM","Materials"
 "PIONEER CREDIT LIMITED","PNC","Diversified Financials"
+"PIVOTAL METALS LIMITED","PVT","Materials"
 "PIVOTAL SYSTEMS CORPORATION","PVS","Semiconductors & Semiconductor Equipment"
 "PLATINA RESOURCES LIMITED","PGM","Materials"
 "PLATINUM ASIA INVESTMENTS LIMITED","PAI","Not Applic"
@@ -1694,7 +1693,6 @@ Company name,ASX code,GICS industry group
 "R3D RESOURCES LIMITED","R3D","Media & Entertainment"
 "RACE ONCOLOGY LTD","RAC","Pharmaceuticals, Biotechnology & Life Sciences"
 "RADIOPHARM THERANOSTICS LIMITED","RAD","Pharmaceuticals, Biotechnology & Life Sciences"
-"RAFAELLA RESOURCES LTD.","RFR","Materials"
 "RAGNAR METALS LIMITED","RAG","Materials"
 "RAGUSA MINERALS LTD","RAS","Diversified Financials"
 "RAIDEN RESOURCES LIMITED","RDN","Materials"

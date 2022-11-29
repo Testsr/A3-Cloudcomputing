@@ -40,8 +40,8 @@
 <a href="logout">Logout</a>
 <div id="subscriptions">
      {%for item in subscriptions %}
-     <p>StockCode:{{item.title}}</p>
-     <p>StockName:{{item.artist}}</p>
+     <p>Stock Code:{{item.stock_code}}</p>
+     <p>Stock Name:{{item.stock_name}}</p>
      <form method="post" action="unsubscribe" style="display:inline">
           <input type="hidden" name="title" value="{{item.title}}">
           <button type="submit" name="query" value="">
@@ -52,19 +52,17 @@
 </div>
 <div class="query">
      <form action="query" method="get"> 
-          <label for="stockcode">StockCode</label>
+          <label for="stockcode">StockCode/Name</label>
           <input type="text" id="stockcode" name="stockcode"><br>
-          <label for="stockname">StockName</label>
-          <input type="text" id="stockname" name="stockname"><br>
           <input type="submit" id="Submit" value="Query">
      </form>
      {% if response is defined %}
           {% if response == [] %}
-               <p>No result is retrieved. Please query again.</p>
+               <p>No result is retrieved. Please try again.</p>
           {% else %}
                <p>Here are the results:</p>
                {% for item in response%}
-               <div>
+               <div id="add_alert">
                     <p>StockCode:{{item[0]}}</p>
                     <p>StockName:{{item[1]}}</p>
                     <form method="post" action="subscribe" style="display:inline">
@@ -77,7 +75,7 @@
                          <input type="hidden" name="stock_code" value="{{item[0]}}">
                          <button type="submit" name="query" value="">Subscribe</button>
                     </form>
-                    </div>
+               </div>
                {% endfor %}
           {% endif %}
      {% endif %}

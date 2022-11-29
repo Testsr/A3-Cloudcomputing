@@ -53,7 +53,6 @@ def validiate(username:str,password:str):
 def telegram_add():
     username=session["username"]
     response=login_table.query(KeyConditionExpression=Key("username").eq(username))
-
     return render_template("telegram.html",key=response["Items"][0]["ident_str"])
 @application.route("/logout")
 def logout():
@@ -97,34 +96,36 @@ def display_query():
     if 'username' not in session:
         return redirect("/login", code=302)
     username=session["username"]
+    with psycopg.connect("postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.cygdlm2jaqpj"
+                         ".us-east-1.rds.amazonaws.com:5432/postgres") as conn:
+        conditions = conn.execute("SELECT stockcode,compare,trigger from asx_cond where user_name=%s",
+                                  username).fetchall()
     subscriptions = []
     stock_code = request.args.get('stockcode','')
-    stock_name = request.args.get('stockname','')
-    response=return_query(stock_code,stock_name,"postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.cygdlm2jaqpj"
+    response=return_query(stock_code,"postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.cygdlm2jaqpj"
                          ".us-east-1.rds.amazonaws.com:5432/postgres")
     if response is None:
         return render_template("main.html",user_name=username,subscriptions=subscriptions)
 
     return render_template("main.html",user_name=username,subscriptions=subscriptions,response=response)
 
-def return_query(stock_code,stock_name,stock_table_url):
-    if stock_code=='' and stock_name=='':
+def return_query(stock_item,stock_table_url):
+
+    if stock_item=='':
         return None
-    elif stock_code=='':
-        params=(stock_name,)
-        query = "SELECT * from asx_stocks where stock_name=%s;"
-    elif stock_name=='':
-        params=(stock_code,)
-        query = "SELECT * from asx_stocks where stock_code=%s;"
-    else:
-        params=(stock_code,stock_name)
-        query = "SELECT * from asx_stocks where stock_code=%s and stock_name=%s;"
+    params = (stock_item,)
+    query1 = "SELECT * from asx_stocks where stock_name=%s;"
+    query2 = "SELECT * from asx_stocks where stock_code=%s;"
+
     with psycopg.connect(stock_table_url) as conn:
-        results=conn.execute(query,params).fetchall()
-        print(query)
-        print(params)
-        print(results)
-    return results
+        results1=conn.execute(query1,params).fetchall()
+        results2=conn.execute(query2,params).fetchall()
+        if len(results1)>0:
+            return results1
+        elif len(results2)>0:
+            return results2
+        else:
+            return []
 
 @application.route('/subscribe',methods=["POST"])
 def subscribe():

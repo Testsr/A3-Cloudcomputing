@@ -31,8 +31,14 @@ def update(update: Update, context: CallbackContext):
                                        },
                                        )
     context.bot.send_message(chat_id=update.effective_chat.id, text="You have sucessfully registered with the system.")
-
-
+def search(update: Update, context: CallbackContext):
+    pass
+def add_alert(update: Update, context: CallbackContext):
+    pass
+def send_alert(update: Update, context: CallbackContext):
+    pass
+def remove_alert(update: Update, context: CallbackContext):
+    pass
 start_handler = CommandHandler('start', start)
 ident_handler = CommandHandler('identity', update)
 dispatcher.add_handler(start_handler)
