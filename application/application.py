@@ -58,13 +58,28 @@ def telegram_add():
 def logout():
     session.pop('username', None)
     return redirect("/login", code=302)
+@application.route('/main')
+def display_main():
+    if 'username' not in session:
+        return redirect("/login", code=302)
+    username=session["username"]
+    response = login_table.query(KeyConditionExpression=Key("username").eq(username))
+    with psycopg.connect(stock_table_url) as conn:
+        params=username,
+        print(params)
+        result=conn.execute('SELECT stock_code,compare,trigger FROM asx_cond where username = %s',params).fetchall()
+        print(result)
+
+
+    return render_template("main.html",username=username,stocks=result)
 @application.route('/add_stock')
 def add_stock_menu():
     if 'username' not in session:
         return redirect("/login", code=302)
     username=session["username"]
     response = login_table.query(KeyConditionExpression=Key("username").eq(username))
-    return render_template("add_stock.html",username=username)
+
+    return render_template("add_stock.html",username=username,subscriptions=[])
 
 @application.route('/register',methods=['GET', 'POST'])
 def register():
@@ -91,13 +106,7 @@ def add_user():
     return redirect("/login",code=302)
 
 
-@application.route('/main')
-def display_main():
-    if 'username' not in session:
-        return redirect("/login", code=302)
-    username=session["username"]
-    response = login_table.query(KeyConditionExpression=Key("username").eq(username))
-    return render_template("main.html",username=username)
+
 @application.route('/query')
 def display_query():
     if 'username' not in session:
@@ -117,7 +126,6 @@ def display_query():
     return render_template("add_stock.html",user_name=username,subscriptions=subscriptions,response=response)
 
 def return_query(stock_item,stock_table_url):
-
     if stock_item=='':
         return None
     params = (stock_item,)
@@ -155,13 +163,7 @@ def subscribe():
     flash("Subscribed.")
     return redirect("/main", code=302)
 def remove_subscription(username,stockcode):
-    sub_table.delete_item(
-        Key={
-            'username':username,
-            'stockcode':stockcode
-        }
-    )
-
+    pass
 if __name__ == '__main__':
     # run app in debug mode on port 8000
     application.run(debug=True, port=8000)

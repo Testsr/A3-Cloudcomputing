@@ -43,28 +43,29 @@
 </div>
 
 
-<button onclick="location.href='http://127.0.0.1:8000/add_stock'" type="button">Add a Stock</button>
+<button onclick="location.href='/add_stock'" type="button">Add a Stock</button>
 
-<div id="subscriptions">
-     {%if subscriptions == []%}
+<div id="stocks">
+     {%if stocks == []%}
      <p>
           No stock subscribed.
      </p>
      {% endif %}
-     {%for item in subscriptions %}
-     <p>Stock Code:{{item.stock_code}}</p>
-     <p>Stock Name:{{item.stock_name}}</p>
+     {%for item in stocks %}
+     <p>Send noticatifcation when {{item[0]}} is {%if item[1] == "less"%} less than
+          {%else%}greater than
+          {%endif%}
+          {{item[2]}}</p>
      <form method="post" action="unsubscribe" style="display:inline">
           <input type="hidden" name="title" value="{{item.title}}">
           <button type="submit" name="query" value="">
            Remove
+          </button>
           
      </form>
      {% endfor %}
-     
      <a href="logout">Logout</a>
 </div>
-
 </div>
 </body>
 </html> 

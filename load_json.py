@@ -18,12 +18,7 @@ with psycopg.connect("postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.c
             reader=csv.DictReader(csvfile)
             with cur.copy("COPY asx_stocks (stock_code, stock_name) FROM STDIN") as copy:
                 for row in reader:
-                    url = "https://www.asx.com.au/asx/1/company/" + row["ASX code"] + "?fields=primary_share"
-                    req = httpx.get(url)
-                    json_res = req.json()
-                    try:
-                        copy.write_row((row["ASX code"], row["Company name"]))
-                    except KeyError:
-                        pass
+                    copy.write_row((row["ASX code"], row["Company name"]))
+
 
 
