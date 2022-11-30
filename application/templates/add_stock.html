@@ -36,21 +36,25 @@
               <p>StockCode: {{item[0]}}</p>
               <p>StockName: {{item[1]}}</p>
               <form method="post" action="subscribe" style="display:inline">
+              
                    If {{item[1]}}'s price is
+                   <div class="drop-down">
                    <select name="compare" required>
                         <option value="less">less than</option>
                         <option value="greater">greater than</option>
-                   </select> <br>
+                   </select> 
                    <input type="text" name="trigger" required>
+               </div>
+                 <br>
                    <input type="hidden" name="stock_code" value="{{item[0]}}">
-                   <button type="submit" name="query" value="">Subscribe</button>
+                   <button type="submit" id="subscribe" name="query" value="">Subscribe</button>
               </form>
-            
+              <a href="logout">Logout</a>
          </div>
          {% endfor %}
     {% endif %}
 {% endif %}
-<a href="logout">Logout</a>
+
 </div>
 </body>
 </html>

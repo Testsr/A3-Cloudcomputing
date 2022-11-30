@@ -47,7 +47,7 @@ button {
 font-family:'Raleway', 'sans-serif';
 text-align:left;
 float: left;
-
+padding: 10px;
 background-color: rgb(227, 227, 227);
 width: 100%;
 border:none;
@@ -57,12 +57,9 @@ height: 40px;
 border-radius: 10px;
 cursor: pointer;
 margin-bottom: 15px;
-
-
 }
 
 input[type = submit] 
-
 {
 font-family:'Raleway', 'sans-serif';
 text-align:left;
@@ -92,6 +89,26 @@ padding-top:0cm;
 
 input[type = text] 
 {
- margin-left: 5px;
- 
+border-radius: 5px;
+border-color: grey;
+}
+
+input[type = password] 
+{
+border-radius: 5px;
+border-color: grey;
+}
+
+.drop-down {
+    margin-top: 10px;
+}
+
+.drop-down select {
+border-radius: 5px;
+margin-right: 10px;
+height: 20px;
+font-family: 'Lato', 'sans-serif';
+border-width: 2px;
+border-color: black;
+
 }
