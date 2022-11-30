@@ -1,3 +1,4 @@
+
 * {
 margin: 0 px;    
 padding: 0 px;
@@ -9,6 +10,7 @@ body {
     background-image: url("images/Stock-Market.jpg")
 
 }
+
 .pop-up {
     position: absolute;
     transform: translate(-50%,-50%);
@@ -27,13 +29,13 @@ margin: 5px;
 
 }
 
-.main {
+.pop-up {
  position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
 width: 300px;
-padding:20px 30px;
+padding:25px 20px;
 background-color: #fff;
 font-family: 'Lato',sans-serif;
 border-radius: 5px;
@@ -41,30 +43,55 @@ margin: 5px;
 line-height:120%
 }
 
-.register {
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-width: 300px;
-padding:20px 30px;
-background-color: #fff;
-font-family: 'Lato',sans-serif;
-border-radius: 5px;
-margin: 5px;
-line-height:120%
+button {
+font-family:'Raleway', 'sans-serif';
+text-align:left;
+float: left;
+
+background-color: rgb(227, 227, 227);
+width: 100%;
+border:none;
+
+font-size: 15px;
+height: 40px;
+border-radius: 10px;
+cursor: pointer;
+margin-bottom: 15px;
+
+
 }
 
-.telegram {
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-width: 300px;
-padding:20px 30px;
-background-color: #fff;
-font-family: 'Lato',sans-serif;
-border-radius: 5px;
-margin: 5px;
-line-height:120%
+input[type = submit] 
+
+{
+font-family:'Raleway', 'sans-serif';
+text-align:left;
+float: left;
+padding: 10px;
+background-color: rgb(227, 227, 227);
+width: 100%;
+border:none;
+
+font-size: 15px;
+height: 40px;
+border-radius: 10px;
+cursor: pointer;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+#subscriptions {
+margin-left: 3px;    
+}
+
+.pop-up h1 {
+padding-top:0cm;
+ font-size: 25px;   
+ line-height: 30px;
+}
+
+input[type = text] 
+{
+ margin-left: 5px;
+ 
 }
