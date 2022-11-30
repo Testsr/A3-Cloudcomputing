@@ -28,14 +28,22 @@
         .parent {
           display: flex;
         }
+        a.button {
+          -webkit-appearance: button;
+          -moz-appearance: button;
+          appearance: button;
+     }
      </style>
 </head>
 <body>
-<div class="main">
+<div class="pop-up">
 <div>
-<b><p id="username">{{username}}</p></b>
+<b><p id="username">Hi, {{username}}</p></b>
 </div>
-<a href="logout">Logout</a>
+
+
+<button onclick="location.href='http://127.0.0.1:8000/add_stock'" type="button">Add a Stock</a></button>
+
 <div id="subscriptions">
      {%if subscriptions == []%}
      <p>
@@ -49,10 +57,11 @@
           <input type="hidden" name="title" value="{{item.title}}">
           <button type="submit" name="query" value="">
            Remove
-          </button>
+          
      </form>
      {% endfor %}
-     <a href="add_stock">Add a stock.</a>
+     
+     <a href="logout">Logout</a>
 </div>
 
 </div>

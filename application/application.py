@@ -105,16 +105,16 @@ def display_query():
     username=session["username"]
     with psycopg.connect("postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.cygdlm2jaqpj"
                          ".us-east-1.rds.amazonaws.com:5432/postgres") as conn:
-        conditions = conn.execute("SELECT stockcode,compare,trigger from asx_cond where user_name=%s",
-                                  username).fetchall()
+        conditions = conn.execute("SELECT stock_code,compare,trigger from asx_cond where username=%s",
+                                  (username,)).fetchall()
     subscriptions = []
     stock_code = request.args.get('stockcode','')
     response=return_query(stock_code,"postgresql://postgres:CmXKfwocyDjBI7VIM2ub@datastore-asx.cygdlm2jaqpj"
                          ".us-east-1.rds.amazonaws.com:5432/postgres")
     if response is None:
-        return render_template("main.html",user_name=username,subscriptions=subscriptions)
+        return render_template("add_stock.html",user_name=username,subscriptions=subscriptions)
 
-    return render_template("main.html",user_name=username,subscriptions=subscriptions,response=response)
+    return render_template("add_stock.html",user_name=username,subscriptions=subscriptions,response=response)
 
 def return_query(stock_item,stock_table_url):
 
